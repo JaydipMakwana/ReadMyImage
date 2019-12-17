@@ -1,0 +1,18 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Images</strong>
+  <% if @bucket_list.images.attached? %>
+    <% @bucket_list.images.each do |image| %>
+      <%= image_tag url_for(image.variant(resize_to_limit: [100, 100])) %>
+      <%= link_to image.filename, rails_blob_path(image, disposition: 'attachment') %>
+    <% end %>
+  <% end %>
+</p>
+
+<p>
+  <strong>Status</strong>
+  <%= @bucket_list.status %>
+</p>
+
+<%= link_to 'Back', bucket_lists_path %>

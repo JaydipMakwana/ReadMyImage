@@ -1,0 +1,25 @@
+<%= form_with(model: bucket_list, local: true) do |f| %>
+  <% if bucket_list.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(bucket_list.errors.count, "error") %> prohibited this bucket_list from being saved:</h2>
+
+      <ul>
+        <% bucket_list.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :images %>
+    <%= f.file_field :images, multiple: true %>
+  </div>
+
+  <%= f.hidden_field :status, value: 'pending' %>
+  <%= f.hidden_field :user_id, value: current_user.try(:id) %>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

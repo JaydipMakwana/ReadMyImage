@@ -1,0 +1,33 @@
+<h1>Images</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Images</th>
+      <th>Processed</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @bucket_lists.each do |bucket_list| %>
+      <tr>
+        <td>
+          <% if bucket_list.images.attached? %>
+            <% bucket_list.images.each do |image| %>
+              <%= image_tag image.variant(resize: '100x100') %>
+              <%= link_to 'Download', image, download: image %>
+            <% end %>
+          <% end %>
+        </td>
+        <td><%= bucket_list.status %></td>
+        <td><%= link_to 'Show', bucket_list %></td>
+        <td><%= link_to 'Destroy', bucket_list, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Images', new_bucket_list_path %>
