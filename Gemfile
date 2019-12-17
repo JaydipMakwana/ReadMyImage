@@ -39,7 +39,7 @@ group :development, :test do
   gem 'factory_bot_rails', '~> 5.1', '>= 5.1.1'
 
   # Code Analyzer and Code Formatter
-  gem 'rubocop', '~> 0.47.1'
+  gem 'rubocop', '~> 0.77.0'
 end
 
 group :development do
