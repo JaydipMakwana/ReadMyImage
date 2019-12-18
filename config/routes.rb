@@ -5,5 +5,5 @@ Rails.application.routes.draw do
   resources :bucket_lists, except: %i[edit update] do
     get 'download_text'
   end
-  root to: 'bucket_lists#index'
+  root 'bucket_lists#index'
 end
