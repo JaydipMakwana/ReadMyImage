@@ -7,8 +7,8 @@
     </div>
     <!-- Login Form -->
     <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-      <%= f.email_field :email, id: "login", class: "fadeIn second", name: "login", placeholder: "Email" %>
-      <%= f.password_field :password, id: "password", class: "fadeIn third mb-3", name: "login", placeholder: "Password" %>
+      <%= f.email_field :email, id: "login", class: "fadeIn second", placeholder: "Email" %>
+      <%= f.password_field :password, id: "password", class: "fadeIn third mb-3", placeholder: "Password" %>
       <% if devise_mapping.rememberable? %>
         <div class="custom-control custom-checkbox mb-3">
           <%= f.check_box :remember_me, class: "custom-control-input", id: "customCheck1" %>
