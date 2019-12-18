@@ -1,0 +1,21 @@
+<div class="raw">
+  <div class="col-md-12">
+    <%= link_to 'New Images', new_image_path, class: "btn btn-primary" %>
+  </div>
+</div>
+<% @images.each do |image| %>
+  <div class="card" style="width: 18rem;">
+    <% if image.photo.attached? %>
+      <% photo = image.photo %>
+      <%= image_tag photo, size: '286x180', class: "card-img-top" %>
+      <div class="card-body">
+        <h5 class="card-title"><%= photo.blob.filename %></h5>
+        <p class="card-text">Status : <%= image.status.titleize %></p>
+        <div class='mb-3'>
+          <%= link_to 'Show', image_path(image), class: 'btn btn-primary'  %>
+          <%= link_to 'Delete', image_path(image), method: :delete, class: "btn btn-primary" %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+<% end %>
