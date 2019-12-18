@@ -24,7 +24,6 @@
 /config/master.key
 
 # Ignore Database configurations
-config/database.yml
 
 /public/packs
 /public/packs-test
