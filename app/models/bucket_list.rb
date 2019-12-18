@@ -3,9 +3,4 @@ class BucketList < ApplicationRecord
 
   has_many_attached :images
   belongs_to :user
-
-  before_create :ocr_processing
-
-  def ocr_processing
-  end
 end
