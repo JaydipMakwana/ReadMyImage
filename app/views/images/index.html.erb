@@ -7,7 +7,9 @@
   <div class="card" style="width: 18rem;">
     <% if image.photo.attached? %>
       <% photo = image.photo %>
-      <%= image_tag photo, size: '286x180', class: "card-img-top" %>
+      <div class='card-img'>
+        <%= image_tag photo, class: "card-img-top img-fluid" %>
+      </div>
       <div class="card-body">
         <h5 class="card-title"><%= photo.blob.filename %></h5>
         <p class="card-text">Status : <%= image.status.titleize %></p>

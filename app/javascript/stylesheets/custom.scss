@@ -1,13 +1,8 @@
 
 /* BASIC */
 
-html {
-  background-color: #56baed;
-}
-
 body {
   font-family: "Poppins", sans-serif;
-  height: 100vh;
 }
 
 a {
@@ -74,6 +69,7 @@ h2 {
   border-radius: 5px 5px 5px 5px;
   border: 1px solid rgba(0,0,0,0.3);
   text-align: center;
+  padding: 10px
 }
 
 /* TABS */
@@ -272,6 +268,11 @@ input[type=text]:placeholder, input[type=email]:placeholder, input[type=password
 }
 
 .card{
+  .card-img{
+    height: 385px
+  }
   float: left;
   margin: 10px;
+  padding: 5px;
+  height: 600px
 }

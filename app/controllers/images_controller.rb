@@ -3,7 +3,7 @@ class ImagesController < ApplicationController
   after_action :ocr_processing, only: %i[create]
 
   def index
-    @images = current_user.images
+    @images = Image.all
   end
 
   def show; end
@@ -43,6 +43,8 @@ class ImagesController < ApplicationController
   def ocr_processing
     @photo = @image.photo
     text = MicrosoftOcr.call_service(@photo)
+    # text = GoogleCloudVision.get_text(@photo)
+    # abc = GoogleCloudVision.classify_text(text)
     @image.update(ocr_content: text, status: 'completed')
   end
 
@@ -51,6 +53,6 @@ class ImagesController < ApplicationController
   end
 
   def image_params
-    params.require(:image).permit(:status, :user_id, :photo)
+    params.require(:image).permit(:status, :photo)
   end
 end

@@ -11,12 +11,11 @@ class MicrosoftOcr
         # Request parameters
         'language' => 'en',
     })
-
     request = Net::HTTP::Post.new(uri.request_uri)
     # Request headers
     request['Content-Type'] = 'application/octet-stream'
     # Request headers
-    request['Ocp-Apim-Subscription-Key'] = '411c2f353cdf4274ae5919034a957912'
+    request['Ocp-Apim-Subscription-Key'] = '731b27243db040799a3a640e10b69da1'
     # Request body
     binary = image.download
     request.body = binary
@@ -27,6 +26,7 @@ class MicrosoftOcr
   end
 
   def self.format_response(response)
+    binding.pry
     lines = []
     line = []
     response['regions'].select {|re| re['lines'].select {|li| lines << li['words'].pluck('text')}}
