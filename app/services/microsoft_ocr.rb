@@ -15,7 +15,7 @@ class MicrosoftOcr
     # Request headers
     request['Content-Type'] = 'application/octet-stream'
     # Request headers
-    request['Ocp-Apim-Subscription-Key'] = '731b27243db040799a3a640e10b69da1'
+    request['Ocp-Apim-Subscription-Key'] = '33f1f6f4a4e54cfcbf9e36b63a1c06fe'
     # Request body
     binary = image.download
     request.body = binary
@@ -26,7 +26,6 @@ class MicrosoftOcr
   end
 
   def self.format_response(response)
-    binding.pry
     lines = []
     line = []
     response['regions'].select {|re| re['lines'].select {|li| lines << li['words'].pluck('text')}}
